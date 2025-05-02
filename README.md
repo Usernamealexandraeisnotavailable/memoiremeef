@@ -1,4 +1,4 @@
-# _Anticiper les procédures inférentielles par l'utilisation de grands modèles langage_
+# _Identifier les procédures inférentielles par l'utilisation de grands modèles langage_
 
 Ici se trouvent diverses ressource liées à mon mémoire de master MEEF Mathématiques :
 

@@ -6,7 +6,7 @@ data = []
 previous_x = None
 previous_y = None
 z = 0
-file = "tests/gemma3"
+file = "tests/mistral2"
 with open(f'{file}.csv', newline='', encoding='utf-8') as csvfile:
     reader = csv.reader(csvfile, delimiter=';', quotechar='"')
     rows = list(reader)
@@ -45,13 +45,6 @@ for i in range(len(data_avg)) :
         stdvals += [statistics.stdev(data_avg[i])]
         pvalues += [scipy.stats.chi.cdf(math.sqrt(30)*statistics.stdev(data_avg[i])/11,30),0.05]
         avg_redim += data_avg[i]
-print("moyenne",statistics.mean(avg_redim))
-print("stdev",statistics.stdev(avg_redim))
-print("len",len(avg_redim))
+pvalues = pvalues[0::2] # for some reason, pvalues would otherwise have 1.0s every other index ò.ó
 print([math.log(p,0.05) for p in pvalues])
-print(math.log(statistics.harmonic_mean(pvalues),0.05))
-print((statistics.mean(avg_redim)-50)/(statistics.stdev(avg_redim)/math.sqrt(len(avg_redim))))
-print("log0.05(p)",math.log(scipy.stats.norm.cdf(((statistics.mean(avg_redim)-50)/(statistics.stdev(avg_redim)/math.sqrt(len(avg_redim))))),0.05))
-"""for i in range(len(pvalues)) :
-    print(f"Élève {i+1};{statistics.mean(data_avg[i])};{str(stdvals[i]).replace('.',',')};{str(math.log(pvalues[i],0.05)).replace('.',',')}")
-print(f"{str(math.log(statistics.harmonic_mean(pvalues),0.05).replace('.',',')}")"""
+print("HMP",math.log(statistics.harmonic_mean(pvalues),0.05))

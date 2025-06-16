@@ -6,7 +6,7 @@ data = []
 previous_x = None
 previous_y = None
 z = 0
-file = "tests/mistral2"
+file = "tests/llama @ θ = 0.2625"
 with open(f'{file}.csv', newline='', encoding='utf-8') as csvfile:
     reader = csv.reader(csvfile, delimiter=';', quotechar='"')
     rows = list(reader)
@@ -29,20 +29,15 @@ data_avg = []
 data_len = []
 for numetu in range(len(data)):
     avg_row = []
-    len_row = []
     for numllm in range(len(data[numetu])):
         values = data[numetu][numllm]
         avg_row.append(statistics.mean(values))
-        # len_row.append(len(values))
     data_avg.append(avg_row)
-    data_len.append(len(data[numetu]))
-stdvals = []
 pvalues = []
 avg_redim = []
 print(f"\"Modèle :\";\"{file}\"")
 for i in range(len(data_avg)) :
     if scipy.stats.chi.cdf(math.sqrt(30)*statistics.stdev(data_avg[i])/11,30) != 0 :
-        stdvals += [statistics.stdev(data_avg[i])]
         pvalues += [scipy.stats.chi.cdf(math.sqrt(30)*statistics.stdev(data_avg[i])/11,30),0.05]
         avg_redim += data_avg[i]
 pvalues = pvalues[0::2] # for some reason, pvalues would otherwise have 1.0s every other index ò.ó

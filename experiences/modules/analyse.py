@@ -11,8 +11,12 @@ def analyse_etape (
   valeur_decimale                    : "str -> str",
   nouvelle_ligne_liste               : "uncurried(str -> list -> str)"
 ) -> None :
+
     import ollama
+    import time
+    
     for i in range(taille_echantillon_par_comparaison):
+        
         prompt = '\n'.join([
             "CONTEXTE : Un exercice de mathématiques en classe de seconde (lycée) sur les variations d'une fonction définie sur [0;2].",
             f"OBJECTIF : On attend que l'élève dise, possiblement en ses mots, que \"{etape_hypothetique}\".",
@@ -21,6 +25,8 @@ def analyse_etape (
             "CONCORDANCE (en %) = "
         ])
 
+        epoch_debut = time.time()
+        
         chaine = ""
         for chunk in ollama.chat(
             model     = modele,
@@ -30,7 +36,7 @@ def analyse_etape (
             options   = {'temperature': temperature,
                          'num_predict': seuil_max_tokens_generables}
         ) :
-            chaine += chunk['message']['content'].replace('\n', '\\n').replace('\r', '').replace('#', '\\#')
+            chaine += chunk['message']['content']
 
         pourcentage = valeur_decimale(chaine)
         print(f"{indice_eleve};{indice_exercice};{etape_observee};{etape_hypothetique};{pourcentage}")
@@ -41,3 +47,7 @@ def analyse_etape (
             f"\"{etape_hypothetique}\"",
             f"\"{pourcentage}\""
         ])
+        
+        epoch_fin = time.time()
+        
+        print(f"Temps d'exécution : {round(epoch_fin - epoch_debut, 2)} secondes")

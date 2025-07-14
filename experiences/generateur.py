@@ -22,7 +22,7 @@ modules.manipfichiers.nouvelle_ligne_liste(chemin_sortie, [
     "Température"
 ])
 modules.manipfichiers.nouvelle_ligne_liste(chemin_sortie, [
-    f"{modele}",
+    modele,
     f"{temperature}"
 ])
 modules.manipfichiers.nouvelle_ligne_liste(chemin_sortie, [

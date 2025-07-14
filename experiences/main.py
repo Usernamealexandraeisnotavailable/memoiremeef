@@ -1,6 +1,5 @@
 """ Modules """
 import random
-import time
 import sys
 import modules.decimales
 import modules.manipfichiers

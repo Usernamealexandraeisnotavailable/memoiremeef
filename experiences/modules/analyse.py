@@ -5,6 +5,7 @@ def analyse_etape (
   indice_exercice                    : "int",
   modele                             : "str",
   temperature                        : "float",
+  seuil_max_tokens_generables        : "int",
   taille_echantillon_par_comparaison : "int",
   chemin_sortie                      : "str",
   valeur_decimale                    : "str -> str",
@@ -23,9 +24,11 @@ def analyse_etape (
         chaine = ""
         for chunk in ollama.chat(
             model     = modele,
-            messages  = [{'role': 'user', 'content': prompt}],
+            messages  = [{'role': 'user',
+                          'content': prompt}],
             stream    = True,
-            options   = {'temperature': temperature, 'num_predict': 50}
+            options   = {'temperature': temperature,
+                         'num_predict': seuil_max_tokens_generables}
         ) :
             chaine += chunk['message']['content'].replace('\n', '\\n').replace('\r', '').replace('#', '\\#')
 

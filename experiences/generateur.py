@@ -1,4 +1,5 @@
 """ Modules """
+
 import random
 import sys
 import modules.decimales
@@ -7,8 +8,9 @@ import modules.etapes
 import modules.analyse
 
 """ Données manipulables """
+
 modele                                 : "str"    = "glm4:9b"
-temperature                            : "float"  = float(0.0)
+temperature                            : "float"  = 0.0
 seuil_max_tokens_generables            : "int"    = 50
 taille_echantillon_par_comparaison     : "int"    = 1
 seuil_max_etapes_observees_a_analyser  : "int"    = sys.maxsize
@@ -16,13 +18,14 @@ chemin_sortie                          : "str"    = "resultat.csv"
 
 
 """ Création de l'entête du fichier résultat """
+
 modules.manipfichiers.vider_fichier(chemin_sortie)
 modules.manipfichiers.nouvelle_ligne_liste(chemin_sortie, [
     "Modèle",
     "Température"
 ])
 modules.manipfichiers.nouvelle_ligne_liste(chemin_sortie, [
-    modele,
+    f"{modele}",
     f"{temperature}"
 ])
 modules.manipfichiers.nouvelle_ligne_liste(chemin_sortie, [
@@ -33,12 +36,14 @@ modules.manipfichiers.nouvelle_ligne_liste(chemin_sortie, [
     "Concordance générée (en %)"
 ])
 
-""" Analyse selon le modèle """
+""" Corps principal du programme """
+
 if seuil_max_etapes_observees_a_analyser < sys.maxsize :
     random.shuffle(modules.etapes.a_posteriori)
-nombre_etapes_observees_analysees = 0
-for indice_eleve, eleve in enumerate(modules.etapes.a_posteriori) :
 
+nombre_etapes_observees_analysees = 0
+
+for indice_eleve, eleve in enumerate(modules.etapes.a_posteriori) :
     for indice_exercice, etapes_hypothetiques in enumerate(modules.etapes.a_priori) :
         etapes_observees = eleve[indice_exercice]
 

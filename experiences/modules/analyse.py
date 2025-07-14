@@ -33,7 +33,7 @@ def analyse_etape (
             chaine += chunk['message']['content'].replace('\n', '\\n').replace('\r', '').replace('#', '\\#')
 
         pourcentage = valeur_decimale(chaine)
-        print(f"{i} : {indice_eleve};{indice_exercice};{etape_observee};{etape_hypothetique};{pourcentage}")
+        print(f"{indice_eleve};{indice_exercice};{etape_observee};{etape_hypothetique};{pourcentage}")
         nouvelle_ligne_liste(chemin_sortie, [
             str(indice_eleve),
             str(indice_exercice),

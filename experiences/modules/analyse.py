@@ -37,17 +37,22 @@ def analyse_etape (
                          'num_predict': seuil_max_tokens_generables}
         ) :
             chaine += chunk['message']['content']
+        print(f"Sortie brute : \"{chaine}\"")
 
         pourcentage = valeur_decimale(chaine)
-        print(f"{indice_eleve};{indice_exercice};{etape_observee};{etape_hypothetique};{pourcentage}")
-        nouvelle_ligne_liste(chemin_sortie, [
+        donnees = [
             str(indice_eleve),
             str(indice_exercice),
             f"\"{etape_observee}\"",
             f"\"{etape_hypothetique}\"",
             f"\"{pourcentage}\""
-        ])
+        ]
+        
+        print(f"Nouvelle ligne : {';'.join(donnees)}")
+        nouvelle_ligne_liste(chemin_sortie, donnees)
         
         epoch_fin = time.time()
         
-        print(f"Temps d'exécution : {round(epoch_fin - epoch_debut, 2)} secondes")
+        print(f"Temps d'exécution : {
+            round(epoch_fin - epoch_debut, 2)
+        } secondes", end="\n\n")

@@ -1,3 +1,10 @@
+"""
+Si vous remplissez ces deux arrays alternativement, veuillez éviter de mettre des guillemets, même avec \".
+À la limite, je vous conseille de mettre \\\" à la place -- c'est plus velu, mais le fichier CSV qui sera généré via le fichier principal sera analysé de manière appropriée.
+"""
+
+# Étapes identifiées a priori
+
 a_priori = [
     ["f ≥ -2 sur [0;1]",
      "f est décroissante sur [1;2]",
@@ -21,6 +28,9 @@ a_priori = [
      "Si l’antécédent est faux, l’implication est vraie",
      "Si f(x) > 1, on a -5 ≤ x < 1"]
 ]
+
+# Étapes identifiées a posteriori
+
 a_posteriori = [
     [
         ["f(2)=-5","-5<-2"],
@@ -47,14 +57,10 @@ a_posteriori = [
         ["il est supérieur"]
     ],
     [
-        ["f(0)=-2",
-        "0<1"],
-        ["f(0)=-2",
-        "0<"],
-        ["f(0)=-2",
-        "1"],
-        ["f(0)=-2",
-        "1"]
+        ["f(0)=-2","0<1"],
+        ["f(0)=-2","0<"],
+        ["f(0)=-2","1"],
+        ["f(0)=-2","1"]
     ],
     [
         ["la courbe va de -2 à 1"],
@@ -148,15 +154,10 @@ a_posteriori = [
         ["f(x)>-2","x>0"]
     ],
     [
-        ["lorsque f(x)<-2 on est sur l'intervalle [1;2]",
-         "on voit bien que c'est supérieur a 1",
-         "on est entre 1 et 2 et pas égal à 1",
-         "la courbe passe par le centre de l'intervalle"],
+        ["lorsque f(x)<-2 on est sur l'intervalle [1;2]","on voit bien que c'est supérieur a 1","on est entre 1 et 2 et pas égal à 1","la courbe passe par le centre de l'intervalle"],
         ["f(x) ne depasse 2 a aucun moment sur [0;2]"],
-        ["la courbe est croissante sur l'intervalle [0;1]",
-         "dans cette intervalle [0;1] on passe de 0 à 1 et f(-2) à f(1)"],
-        ["la courbe est decroissante sur l'intervalle [1;2]",
-         "cette intervalle [1;2] ne possède aucun f(x)>1"]
+        ["la courbe est croissante sur l'intervalle [0;1]","dans cette intervalle [0;1] on passe de 0 à 1 et f(-2) à f(1)"],
+        ["la courbe est decroissante sur l'intervalle [1;2]","cette intervalle [1;2] ne possède aucun f(x)>1"]
     ],
     [
         ["f(2)=-5","-5<-2","2>1"],

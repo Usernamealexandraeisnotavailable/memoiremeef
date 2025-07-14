@@ -10,7 +10,7 @@ import modules.analyse
 """ Données manipulables """
 modele                                 : "str"    = "glm4:9b"
 temperature                            : "float"  = float(0.0)
-seuil_max_tokens_generables            : "int"    = 30
+seuil_max_tokens_generables            : "int"    = 50
 taille_echantillon_par_comparaison     : "int"    = 1
 seuil_max_etapes_observees_a_analyser  : "int"    = sys.maxsize
 chemin_sortie                          : "str"    = "resultat.csv"
@@ -56,6 +56,7 @@ for indice_eleve, eleve in enumerate(modules.etapes.a_posteriori) :
                     indice_exercice,
                     modele,
                     temperature,
+                    seuil_max_tokens_generables,
                     taille_echantillon_par_comparaison,
                     chemin_sortie,
                     modules.decimales.valeur_decimale,

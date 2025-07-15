@@ -1,6 +1,6 @@
 """
-Si vous remplissez ces deux arrays alternativement, veuillez éviter de mettre des guillemets, même avec \".
-À la limite, je vous conseille de mettre \\\" à la place -- c'est plus velu, mais le fichier CSV qui sera généré via le fichier principal sera analysé de manière appropriée.
+Si vous remplissez ces deux arrays (a_priori et a_posteriori) alternativement, e.g. avec vos propres données, veuillez éviter de mettre des guillemets, même avec \".
+Je vous conseille, au pire cas, de mettre \\\" à la place -- c'est plus velu, mais le fichier CSV qui sera généré via le fichier principal sera analysé de manière appropriée.
 """
 
 # Étapes identifiées a priori

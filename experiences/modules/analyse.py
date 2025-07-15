@@ -41,8 +41,8 @@ def analyse_etape (
 
         pourcentage = valeur_decimale(chaine)
         donnees = [
-            f"{indice_eleve}",
-            f"{indice_exercice}",
+            str(indice_eleve),
+            str(indice_exercice),
             f"\"{etape_observee}\"",
             f"\"{etape_hypothetique}\"",
             f"\"{pourcentage}\""

@@ -27,7 +27,7 @@ def trouver_etape (
                         [0, lambda indice_eleve_donne : f"{indice_eleve_donne}" == f"{indice_eleve}"],
                         [1, lambda indice_exercice_donne : f"{indice_exercice_donne}" == f"{indice_exercice}"],
                         [3, lambda etape_donnee : f"{etape_donnee}" == f"{etape}"],
-                        [4, lambda pourcentage : str(pourcentage).strip().lower() != "nan"]
+                        [4, lambda pourcentage : f"{pourcentage}".strip().lower() != "nan"]
                     ],
                     lambda ligne : ligne >= 3
                 )

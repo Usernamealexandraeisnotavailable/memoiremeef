@@ -9,12 +9,12 @@ import modules.analyse
 
 """ Données manipulables """
 
-modele                                 : "str"    = "glm4:9b"
-temperature                            : "float"  = 0.0
-seuil_max_tokens_generables            : "int"    = 50
-taille_echantillon_par_comparaison     : "int"    = 1
-seuil_max_etapes_observees_a_analyser  : "int"    = sys.maxsize
-chemin_sortie                          : "str"    = "resultat.csv"
+modele                                 : "str"        = "marco-o1:7b"
+temperature                            : "float|int"  = 0
+seuil_max_tokens_generables            : "int"        = 50
+taille_echantillon_par_comparaison     : "int"        = 1
+seuil_max_etapes_observees_a_analyser  : "int"        = sys.maxsize
+chemin_sortie                          : "str"        = "resultat.csv"
 
 
 """ Création de l'entête du fichier résultat """
@@ -44,7 +44,9 @@ if seuil_max_etapes_observees_a_analyser < sys.maxsize :
 nombre_etapes_observees_analysees = 0
 
 for indice_eleve, eleve in enumerate(modules.etapes.a_posteriori) :
+    
     for indice_exercice, etapes_hypothetiques in enumerate(modules.etapes.a_priori) :
+        
         etapes_observees = eleve[indice_exercice]
 
         for etape_observee in etapes_observees :

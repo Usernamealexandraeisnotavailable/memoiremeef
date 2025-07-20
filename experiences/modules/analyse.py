@@ -42,7 +42,7 @@ def analyse_etape (
         print(''.join([
             "\x1b[1;37;40m",       # blanc sur noir, gras
             "Sortie brute :\n",
-            "\x1b[3;32;40m",       # vert sur noir, italique
+            "\x1b[5;31;40m",       # rouge sur noir, clignottant
             chaine,
             "\x1b[0m"              # blanc sur noir, normal
         ]))
@@ -59,7 +59,7 @@ def analyse_etape (
         print(''.join([
             "\x1b[1;37;40m",       # blanc sur noir, gras
             "Nouvelle ligne :\n",
-            "\x1b[5;31;40m",       # rouge sur noir, clignottant
+            "\x1b[5;32;40m",       # vert sur noir, clignottant
             ';'.join(donnees),
             "\x1b[0m"              # blanc sur noir, normal
         ]))

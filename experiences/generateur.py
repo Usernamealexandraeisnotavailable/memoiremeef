@@ -9,7 +9,7 @@ import modules.analyse
 
 """ Données manipulables """
 
-modele                                 : "str"        = "marco-o1:7b"
+modele                                 : "str"        = "command-r7b:7b"
 temperature                            : "float|int"  = 0
 seuil_max_tokens_generables            : "int"        = 50
 taille_echantillon_par_comparaison     : "int"        = 1

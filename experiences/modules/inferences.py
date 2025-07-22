@@ -1,7 +1,7 @@
 import modules.etapes
 import modules.etapescsv
 import modules.analysedossier
-from statistics import mean, stdev
+from statistics import mean, stdev, median
 
 nombre_eleves = len(modules.etapes.a_posteriori)
 
@@ -43,7 +43,7 @@ def calculer_prevalences_inferences (
     for indice_exercice, exercice in enumerate(inferences) :
         for indice_inference, inference in enumerate(exercice) :
 
-            print(f"Pour inférence {indice_exercice+1}.{indice_inference+1}")
+            print(f"\x1b[1;37;40mPour inférence {indice_exercice+1}.{indice_inference+1}\x1b[0m")
             resultat.append([f"{indice_exercice+1}.{indice_inference+1}"])
             prevalences_etapes = []
 
@@ -90,6 +90,46 @@ def calculer_ecarts_types_prevalences_entre_modeles (
         ecarts_types.append([
             nom_inference,
             round(.01*stdev(prevalences_inference),4)
+        ])
+
+    return ecarts_types
+
+def calculer_medianes_prevalences_entre_modeles (
+    prevalences_inferences : "str"
+) -> float :
+
+    ecarts_types = []
+
+    for inference in prevalences_inferences :
+        nom_inference = inference[0]
+        prevalences_inference = []
+
+        for couple_modele_prevalence in inference[1] :
+            prevalences_inference.append(couple_modele_prevalence[1])
+
+        ecarts_types.append([
+            nom_inference,
+            round(.01*median(prevalences_inference),4)
+        ])
+
+    return ecarts_types
+
+def calculer_moyennes_prevalences_entre_modeles (
+    prevalences_inferences : "str"
+) -> float :
+
+    ecarts_types = []
+
+    for inference in prevalences_inferences :
+        nom_inference = inference[0]
+        prevalences_inference = []
+
+        for couple_modele_prevalence in inference[1] :
+            prevalences_inference.append(couple_modele_prevalence[1])
+
+        ecarts_types.append([
+            nom_inference,
+            round(.01*mean(prevalences_inference),4)
         ])
 
     return ecarts_types

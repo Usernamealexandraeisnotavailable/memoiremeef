@@ -34,5 +34,5 @@ for inference_et_ecart_type in ecarts_types :
         ";",
         f"{round(statistique,2)}".replace('.',','),
         ";",
-        f"{round(valeur_p*(10**-int(math.log(valeur_p,10))),2)}E{round(int(math.log(valeur_p,10)))}".replace('.',',')
+        f"{round(valeur_p*(10**-int(math.log(valeur_p,10)-1)),2)}E{round(int(math.log(valeur_p,10)-1))}".replace('.',',')
     )

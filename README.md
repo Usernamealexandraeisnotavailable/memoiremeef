@@ -1,5 +1,5 @@
-# _Grands modèles de langage et 
-## _Premières _
+# _Biais de notation et grands modèles de langage_
+## _Premières explorations autour de l'identification d'inférences élèves_
 
 Ici se trouvent diverses ressource liées à mon mémoire de master MEEF Mathématiques :
 

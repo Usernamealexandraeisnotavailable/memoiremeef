@@ -28,7 +28,7 @@ print(" ; ".join([
 for modele in modeles :
         moyenne = statistics.mean(modele[1])/100
         devst = statistics.stdev(modele[1])/100
-        statistique_z = (4*moyenne-2)/devst
+        statistique_z = 8*moyenne-4
         valeur_p = 2*scipy.stats.norm.cdf(-abs(statistique_z))
         if valeur_p != 0 :
                 print(" ; ".join([
